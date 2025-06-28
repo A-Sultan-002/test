@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    /* Task 1: Styled Name */
+    .header {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+    align-content: space-evenly;
+      color: #2c3e50;
+      position: absolute;
+      top: 20px;
+      font-style: italic;
+      font-family: 'Times New Roman', Times, serif;
+      left: 20px;
+    }
+    #m{
+        background-color: #aecef1;
+        display: flex;
+        justify-content: right;
+     border: 2px solid #aecef1;
+        align-content: space-evenly;
+    }
+
+    /* Task 2: Navigation Bar */
+    nav {
+      margin-left: 200px;
+      display: flex;
+      gap: 30px;
+      align-content: space-evenly;
+      margin-top: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    section {
+      margin-top: 60px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Task 3: About Me */
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-text {
+      max-width: 600px;
+    }
+
+    /* Task 4: Skills */
+    .skills {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f0f0f0;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .skill img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Task 5: Projects */
+    .projects .project {
+      margin-bottom: 15px;
+    }
+
+    /* Task 6: Recommendations */
+    .recommendations .recommendation {
+      margin-bottom: 10px;
+    }
+
+    /* Task 7, 9: Form + Pop-up */
+    #recommendForm {
+      margin-top: 20px;
+    }
+
+    /* Task 8: Home Icon */
+    .home-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 30px;
+      background: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Task 1 -->
+  <div class="header">Ahsan's Portfolio</div>
+
+  <!-- Task 2 -->
+  <div id="m"><nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#recommendations">Recommendations</a>
+  </nav>
+  </div>
+  <!-- Task 3 -->
+  <section id="about" class="about">
+    <img src="https://cdn-icons-png.flaticon.com/128/1999/1999625.png" alt="Profile Image">
+    <div class="about-text">
+      <h2>Ahsan</h2>
+      <p>A passionate student of Chemistry and Computer Science with a deep interest in technology, posture biomechanics, and military preparation (ISSB).</p>
+    </div>
+  </section>
+
+  <!-- Task 4 -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919826.png" alt="HTML">
+        <span>HTML</span>
+      </div>
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="CSS">
+        <span>CSS</span>
+      </div>
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919828.png" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Task 5 -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project"><strong>Rock paeper game</strong> A single page game using html css and js.</div>
+    <div class="project"><strong>Digi counter</strong> A web page to count on click.Also with reduce and reset button</div>
+    <div class="project"><strong>Dictionary using api</strong> A project that was nade using api.</div>
+  </section>
+
+  <!-- Task 6, 7 -->
+  <section id="recommendations" class="recommendations">
+    <h2>Recommendations</h2>
+    <div id="recommendList">
+      <div class="recommendation">"Ahsan shows  excellent learning and adapion speedhas a strong grasp of concepts." – Mentor</div>
+      <div class="recommendation">"Demonstrates consistent discipline and eagerness to learn." – Peer</div>
+      <div class="recommendation">"Creative thinker and very professional in approach." – Instructor</div>
+    </div>
+
+    <!-- Task 7: Add Recommendation -->
+    <form id="recommendForm">
+      <h3>Add a Recommendation</h3>
+      <textarea id="newRecommendation" rows="3" style="width:100%;" required></textarea><br><br>
+      <button type="submit">Submit Recommendation</button>
+    </form>
+  </section>
+
+  <!-- Task 8: Home Icon -->
+  <div class="home-icon" onclick="scrollToTop()">🏠</div>
+
+  <!-- JavaScript for Task 7, 9 -->
+  <script>
+    document.getElementById('recommendForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const text = document.getElementById('newRecommendation').value.trim();
+      if (text !== "") {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'recommendation';
+        newDiv.textContent = `"${text}" – Anonymous`;
+        document.getElementById('recommendList').appendChild(newDiv);
+        alert("Recommendation submitted successfully!");
+        document.getElementById('newRecommendation').value = "";
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
